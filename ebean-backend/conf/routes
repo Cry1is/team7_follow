@@ -3,12 +3,40 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
+GET     /                                           controllers.HomeController.index
 
 #Login
-POST     /login                      controllers.UserController.authenticate()
-
+POST    /login                                      controllers.UserController.authenticate()
 
 # Add User  {"name":name, "password":password}
-POST    /signup                      controllers.UserController.registerNew()
+POST    /signup                                     controllers.UserController.registerNew()
 
+# Get User
+GET     /users/:user_id                             controllers.UserController.getProfile()
+
+# Follow a particular user
+POST    /follows/:user_id                           controllers.FollowController.follow()
+
+# Remove a particular Follower (Block them from following you)
+DELETE  /follows/:user_id/in                        controllers.FollowController.block()
+
+# Unfollow a particular user
+DELETE  /follows/:user_id/out                       controllers.FollowController.unfollow()
+
+# Get all the followers of a particular user
+GET     /follows/:user_id/in                        controllers.FollowController.getFollowers()
+
+# Get all the following of a particular user
+GET     /follows/:user_id/out                       controllers.FollowController.getFollowing()
+
+#Get the number of people who follows a user
+GET     /follows/:user_id/in/count                  controllers.FollowController.getNumFollowers()
+
+#Get the number of people following a particular user
+GET     /follows/:user_id/out/count                     controllers.FollowController.getNumFollowing()
+
+
+
+#OPTIONAL ROUTES
+# Get Post (can search by post id or by user id and returns all matching posts)
+GET     /posts                           controllers.PostController.getPosts()
