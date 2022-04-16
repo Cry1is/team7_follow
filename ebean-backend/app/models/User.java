@@ -13,20 +13,33 @@ public class User extends Model {
     private static final long serialVersionUID = 1L;
 
     @Id
-    public Long id;
+    public Long user_id;
 
     @Constraints.Required
-    public String username;
+    public String user_name;
 
     @Constraints.Required
-    public String password;
+    public String user_password;
+
+    @Constraints.Required
+    public String display_name;
+
+    @Constrains.Required
+    public String display_avatar;
 
     public static Find<Long, User> find = new Find<Long, User>(){};
 
     public static User findByName(String name) {
         return User.find
                 .where()
-                .eq("username", name)
+                .eq("user_name", name)
+                .findUnique();
+    }
+
+    public static User findById(Long id) {
+        return User.find
+                .where()
+                .eq("user_id", id)
                 .findUnique();
     }
 }
