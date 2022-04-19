@@ -4,15 +4,15 @@
     <option name="LANGUAGE_IMPORTS">
       <array>
         <option value="play.data._" />
-        <option value="play.api.data.Field" />
-        <option value="play.api.templates.PlayMagic._" />
-        <option value="scala.collection.JavaConversions._" />
-        <option value="java.lang._" />
-        <option value="play.mvc._" />
-        <option value="play.core.j.PlayMagicForJava._" />
         <option value="java.util._" />
-        <option value="scala.collection.JavaConverters._" />
+        <option value="scala.collection.JavaConversions._" />
+        <option value="play.core.j.PlayMagicForJava._" />
+        <option value="play.api.data.Field" />
         <option value="play.mvc.Http.Context.Implicit._" />
+        <option value="play.mvc._" />
+        <option value="java.lang._" />
+        <option value="scala.collection.JavaConverters._" />
+        <option value="play.api.templates.PlayMagic._" />
       </array>
     </option>
   </component>

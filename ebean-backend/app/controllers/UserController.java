@@ -21,7 +21,7 @@ public class UserController extends Controller {
         System.out.println("In authenticate");
         JsonNode req = request().body().asJson();
         String username = req.get("user_name").asText();
-        String password = req.get("pass_word").asText();
+        String password = req.get("user_password").asText();
 
         try {
             User user = User.findByName(username); // ( match where username and password both match )
@@ -53,35 +53,26 @@ public class UserController extends Controller {
         String avatar = req.get("display_avatar").asText();
 
         User u = User.findByName(username);
-        ObjectNode result = null;
         if (u == null) {
             System.out.println("new user");
             if (username == null || password == null || name == null || avatar == null)
-                return ok(result);
-            result = Json.newObject();
+                return badRequest("All Fields must be entered");
             User user = new User();
             user.user_name=username;
             user.user_password=password;
             user.display_name=name;
             user.display_avatar=avatar;
             user.save();
-            result.put("body", username);
+            return ok(Json.toJson(user));
         }
-        return ok(result);
+        return ok(Json.toJson(u));
     }
 
-    public Result getProfile() {
-        System.out.println"Getting profile");
-        JsonNode req = request().params().asJson();
-        Long user_id = req.get("user_id").asLong();
+    public Result getProfile(Long user_id) {
+        System.out.println("Getting profile");
 
         User u = User.findById(user_id);
-        ObjectNode result = null;
-        if (u != null) {
-            result.put("body", u);
-            return ok(result);
-        }
-        return ok(null);
+        return ok(Json.toJson(u));
     }
 
 }

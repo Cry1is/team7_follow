@@ -24,7 +24,7 @@ public class User extends Model {
     @Constraints.Required
     public String display_name;
 
-    @Constrains.Required
+    @Constraints.Required
     public String display_avatar;
 
     public static Find<Long, User> find = new Find<Long, User>(){};
