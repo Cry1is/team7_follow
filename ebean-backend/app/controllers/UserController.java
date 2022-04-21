@@ -55,7 +55,7 @@ public class UserController extends Controller {
         User u = User.findByName(username);
         if (u == null) {
             System.out.println("new user");
-            if (username == null || password == null || name == null || avatar == null)
+            if (username == null || username == "" || password == null || password == "" || name == null || name == "" || avatar == null || avatar == "")
                 return badRequest("All Fields must be entered");
             User user = new User();
             user.user_name=username;
