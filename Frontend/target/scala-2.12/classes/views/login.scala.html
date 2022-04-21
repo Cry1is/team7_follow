@@ -1,3 +1,4 @@
+@(authorizeMessage: String)
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,17 +44,17 @@
                                 <label for="password">Password</label>
                             </div>
                         </div>
+                        @if(authorizeMessage!= null){
+                            <div class="alert alert-primary" role="alert">
+                            @authorizeMessage
+                            </div>
+                            <br>
+                        }
                         <div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
-
-
-
-                        <a href="@routes.HomeController.signup()">register</a>
-
+                        <a href="@routes.HomeController.signup()">REGISTER</a>
                     </form>
-
-
                 </div>
             </div>
         </div>
