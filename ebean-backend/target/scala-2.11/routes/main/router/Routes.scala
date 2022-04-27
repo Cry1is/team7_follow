@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/swatibhat/Documents/SOC TA/SOC-Lab-4-Ebean/Lab-4-Working/ebean-backend/conf/routes
-// @DATE:Thu Feb 06 05:52:18 PST 2020
+// @SOURCE:C:/Users/Zachary/Documents/Spring2022/CS4345/team7_follow/ebean-backend/conf/routes
+// @DATE:Mon Apr 18 16:59:09 CDT 2022
 
 package router
 
@@ -20,6 +20,8 @@ class Routes(
   HomeController_0: controllers.HomeController,
   // @LINE:9
   UserController_1: controllers.UserController,
+  // @LINE:18
+  FollowController_2: controllers.FollowController,
   val prefix: String
 ) extends GeneratedRouter {
 
@@ -28,14 +30,16 @@ class Routes(
     // @LINE:6
     HomeController_0: controllers.HomeController,
     // @LINE:9
-    UserController_1: controllers.UserController
-  ) = this(errorHandler, HomeController_0, UserController_1, "/")
+    UserController_1: controllers.UserController,
+    // @LINE:18
+    FollowController_2: controllers.FollowController
+  ) = this(errorHandler, HomeController_0, UserController_1, FollowController_2, "/")
 
   import ReverseRouteContext.empty
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_0, UserController_1, prefix)
+    new Routes(errorHandler, HomeController_0, UserController_1, FollowController_2, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -43,9 +47,17 @@ class Routes(
   }
 
   def documentation = List(
-    ("""GET""", this.prefix, """controllers.HomeController.index"""),
+    ("""GET""", this.prefix, """controllers.HomeController.index()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.UserController.authenticate()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """signup""", """controllers.UserController.registerNew()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/""" + "$" + """user_id<[^/]+>""", """controllers.UserController.getProfile(user_id:Long)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """follows""", """controllers.FollowController.follow()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """follows/in""", """controllers.FollowController.block()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """follows/out""", """controllers.FollowController.unfollow()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """follows/""" + "$" + """user_id<[^/]+>/in""", """controllers.FollowController.getFollowers(user_id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """follows/""" + "$" + """user_id<[^/]+>/out""", """controllers.FollowController.getFollowing(user_id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """follows/""" + "$" + """user_id<[^/]+>/in/count""", """controllers.FollowController.getNumFollowers(user_id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """follows/""" + "$" + """user_id<[^/]+>/out/count""", """controllers.FollowController.getNumFollowing(user_id:Long)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -58,7 +70,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix)))
   )
   private[this] lazy val controllers_HomeController_index0_invoker = createInvoker(
-    HomeController_0.index,
+    HomeController_0.index(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -87,7 +99,7 @@ class Routes(
     )
   )
 
-  // @LINE:13
+  // @LINE:12
   private[this] lazy val controllers_UserController_registerNew2_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("signup")))
   )
@@ -104,13 +116,149 @@ class Routes(
     )
   )
 
+  // @LINE:15
+  private[this] lazy val controllers_UserController_getProfile3_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users/"), DynamicPart("user_id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_UserController_getProfile3_invoker = createInvoker(
+    UserController_1.getProfile(fakeValue[Long]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "getProfile",
+      Seq(classOf[Long]),
+      "GET",
+      """ Get User""",
+      this.prefix + """users/""" + "$" + """user_id<[^/]+>"""
+    )
+  )
+
+  // @LINE:18
+  private[this] lazy val controllers_FollowController_follow4_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("follows")))
+  )
+  private[this] lazy val controllers_FollowController_follow4_invoker = createInvoker(
+    FollowController_2.follow(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.FollowController",
+      "follow",
+      Nil,
+      "POST",
+      """ Follow a particular user""",
+      this.prefix + """follows"""
+    )
+  )
+
+  // @LINE:21
+  private[this] lazy val controllers_FollowController_block5_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("follows/in")))
+  )
+  private[this] lazy val controllers_FollowController_block5_invoker = createInvoker(
+    FollowController_2.block(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.FollowController",
+      "block",
+      Nil,
+      "POST",
+      """ Remove a particular Follower (Block them from following you)""",
+      this.prefix + """follows/in"""
+    )
+  )
+
+  // @LINE:24
+  private[this] lazy val controllers_FollowController_unfollow6_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("follows/out")))
+  )
+  private[this] lazy val controllers_FollowController_unfollow6_invoker = createInvoker(
+    FollowController_2.unfollow(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.FollowController",
+      "unfollow",
+      Nil,
+      "POST",
+      """ Unfollow a particular user""",
+      this.prefix + """follows/out"""
+    )
+  )
+
+  // @LINE:27
+  private[this] lazy val controllers_FollowController_getFollowers7_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("follows/"), DynamicPart("user_id", """[^/]+""",true), StaticPart("/in")))
+  )
+  private[this] lazy val controllers_FollowController_getFollowers7_invoker = createInvoker(
+    FollowController_2.getFollowers(fakeValue[Long]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.FollowController",
+      "getFollowers",
+      Seq(classOf[Long]),
+      "GET",
+      """ Get all the followers of a particular user""",
+      this.prefix + """follows/""" + "$" + """user_id<[^/]+>/in"""
+    )
+  )
+
+  // @LINE:30
+  private[this] lazy val controllers_FollowController_getFollowing8_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("follows/"), DynamicPart("user_id", """[^/]+""",true), StaticPart("/out")))
+  )
+  private[this] lazy val controllers_FollowController_getFollowing8_invoker = createInvoker(
+    FollowController_2.getFollowing(fakeValue[Long]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.FollowController",
+      "getFollowing",
+      Seq(classOf[Long]),
+      "GET",
+      """ Get all the following of a particular user""",
+      this.prefix + """follows/""" + "$" + """user_id<[^/]+>/out"""
+    )
+  )
+
+  // @LINE:33
+  private[this] lazy val controllers_FollowController_getNumFollowers9_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("follows/"), DynamicPart("user_id", """[^/]+""",true), StaticPart("/in/count")))
+  )
+  private[this] lazy val controllers_FollowController_getNumFollowers9_invoker = createInvoker(
+    FollowController_2.getNumFollowers(fakeValue[Long]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.FollowController",
+      "getNumFollowers",
+      Seq(classOf[Long]),
+      "GET",
+      """Get the number of people who follows a user""",
+      this.prefix + """follows/""" + "$" + """user_id<[^/]+>/in/count"""
+    )
+  )
+
+  // @LINE:36
+  private[this] lazy val controllers_FollowController_getNumFollowing10_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("follows/"), DynamicPart("user_id", """[^/]+""",true), StaticPart("/out/count")))
+  )
+  private[this] lazy val controllers_FollowController_getNumFollowing10_invoker = createInvoker(
+    FollowController_2.getNumFollowing(fakeValue[Long]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.FollowController",
+      "getNumFollowing",
+      Seq(classOf[Long]),
+      "GET",
+      """Get the number of people following a particular user""",
+      this.prefix + """follows/""" + "$" + """user_id<[^/]+>/out/count"""
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
     // @LINE:6
     case controllers_HomeController_index0_route(params) =>
       call { 
-        controllers_HomeController_index0_invoker.call(HomeController_0.index)
+        controllers_HomeController_index0_invoker.call(HomeController_0.index())
       }
   
     // @LINE:9
@@ -119,10 +267,58 @@ class Routes(
         controllers_UserController_authenticate1_invoker.call(UserController_1.authenticate())
       }
   
-    // @LINE:13
+    // @LINE:12
     case controllers_UserController_registerNew2_route(params) =>
       call { 
         controllers_UserController_registerNew2_invoker.call(UserController_1.registerNew())
+      }
+  
+    // @LINE:15
+    case controllers_UserController_getProfile3_route(params) =>
+      call(params.fromPath[Long]("user_id", None)) { (user_id) =>
+        controllers_UserController_getProfile3_invoker.call(UserController_1.getProfile(user_id))
+      }
+  
+    // @LINE:18
+    case controllers_FollowController_follow4_route(params) =>
+      call { 
+        controllers_FollowController_follow4_invoker.call(FollowController_2.follow())
+      }
+  
+    // @LINE:21
+    case controllers_FollowController_block5_route(params) =>
+      call { 
+        controllers_FollowController_block5_invoker.call(FollowController_2.block())
+      }
+  
+    // @LINE:24
+    case controllers_FollowController_unfollow6_route(params) =>
+      call { 
+        controllers_FollowController_unfollow6_invoker.call(FollowController_2.unfollow())
+      }
+  
+    // @LINE:27
+    case controllers_FollowController_getFollowers7_route(params) =>
+      call(params.fromPath[Long]("user_id", None)) { (user_id) =>
+        controllers_FollowController_getFollowers7_invoker.call(FollowController_2.getFollowers(user_id))
+      }
+  
+    // @LINE:30
+    case controllers_FollowController_getFollowing8_route(params) =>
+      call(params.fromPath[Long]("user_id", None)) { (user_id) =>
+        controllers_FollowController_getFollowing8_invoker.call(FollowController_2.getFollowing(user_id))
+      }
+  
+    // @LINE:33
+    case controllers_FollowController_getNumFollowers9_route(params) =>
+      call(params.fromPath[Long]("user_id", None)) { (user_id) =>
+        controllers_FollowController_getNumFollowers9_invoker.call(FollowController_2.getNumFollowers(user_id))
+      }
+  
+    // @LINE:36
+    case controllers_FollowController_getNumFollowing10_route(params) =>
+      call(params.fromPath[Long]("user_id", None)) { (user_id) =>
+        controllers_FollowController_getNumFollowing10_invoker.call(FollowController_2.getNumFollowing(user_id))
       }
   }
 }

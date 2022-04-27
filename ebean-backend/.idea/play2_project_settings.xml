@@ -20,7 +20,7 @@
         <entry key="root">
           <value>
             <ProjectSettingsEntry>
-              <option name="sourceDir" value="$PROJECT_DIR$/app" />
+              <option name="sourceDir" value="C:\Users\Zachary\Documents\Spring2022\CS4345\team7_follow\ebean-backend\app" />
               <option name="confDir" value="$PROJECT_DIR$/app" />
               <option name="templateImports">
                 <list>
@@ -46,7 +46,7 @@
                   <option value="play.libs.F" />
                 </list>
               </option>
-              <option name="uri" value="$PROJECT_DIR$/../../../../SOC%20TA/SOC-Lab-4-Ebean/Lab-4-Working/ebean-backend" />
+              <option name="uri" value="$PROJECT_DIR$" />
             </ProjectSettingsEntry>
           </value>
         </entry>

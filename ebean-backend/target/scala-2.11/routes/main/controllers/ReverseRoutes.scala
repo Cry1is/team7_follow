@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/swatibhat/Documents/SOC TA/SOC-Lab-4-Ebean/Lab-4-Working/ebean-backend/conf/routes
-// @DATE:Thu Feb 06 05:52:18 PST 2020
+// @SOURCE:C:/Users/Zachary/Documents/Spring2022/CS4345/team7_follow/ebean-backend/conf/routes
+// @DATE:Mon Apr 18 16:59:09 CDT 2022
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -35,16 +35,73 @@ package controllers {
     }
 
   
+    // @LINE:15
+    def getProfile(user_id:Long): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "users/" + implicitly[PathBindable[Long]].unbind("user_id", user_id))
+    }
+  
     // @LINE:9
     def authenticate(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "login")
     }
   
-    // @LINE:13
+    // @LINE:12
     def registerNew(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "signup")
+    }
+  
+  }
+
+  // @LINE:18
+  class ReverseFollowController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:27
+    def getFollowers(user_id:Long): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "follows/" + implicitly[PathBindable[Long]].unbind("user_id", user_id) + "/in")
+    }
+  
+    // @LINE:33
+    def getNumFollowers(user_id:Long): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "follows/" + implicitly[PathBindable[Long]].unbind("user_id", user_id) + "/in/count")
+    }
+  
+    // @LINE:30
+    def getFollowing(user_id:Long): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "follows/" + implicitly[PathBindable[Long]].unbind("user_id", user_id) + "/out")
+    }
+  
+    // @LINE:18
+    def follow(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "follows")
+    }
+  
+    // @LINE:36
+    def getNumFollowing(user_id:Long): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "follows/" + implicitly[PathBindable[Long]].unbind("user_id", user_id) + "/out/count")
+    }
+  
+    // @LINE:21
+    def block(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "follows/in")
+    }
+  
+    // @LINE:24
+    def unfollow(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "follows/out")
     }
   
   }

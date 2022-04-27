@@ -1,8 +1,0 @@
-2020-02-06 06:01:18,512 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
-2020-02-06 06:01:18,768 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:mysql://localhost:3306/ebeantest?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-2020-02-06 06:01:19,830 [INFO] from play.api.Play in ForkJoinPool-1-worker-1 - Application started (Dev)
-2020-02-06 06:02:44,683 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=55s828ms).
-2020-02-06 06:03:44,735 [INFO] from application in application-akka.actor.default-dispatcher-6 - Shutting down connection pool.
-2020-02-06 06:03:44,848 [INFO] from application in application-akka.actor.default-dispatcher-6 - Creating Pool for datasource 'default'
-2020-02-06 06:03:44,863 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-6 - Database [default] connected at jdbc:mysql://localhost:3306/ebeantest?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-2020-02-06 06:03:46,440 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-6 - Application started (Dev)

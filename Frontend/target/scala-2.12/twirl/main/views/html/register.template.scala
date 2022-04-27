@@ -108,8 +108,8 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2022-02-22T11:59:16.055
-                  SOURCE: C:/Users/Zachary/Downloads/Lab-2-Ebean/Lab-2-Ebean/Frontend/app/views/register.scala.html
+                  DATE: 2022-04-20T22:05:25.557
+                  SOURCE: /home/myusernamesthis/cs4345/team7_follow/Frontend/app/views/register.scala.html
                   HASH: 21084405952337d1dab47a06d6b9e9c7674f3466
                   MATRIX: 951->1|1071->28|2659->1591|2674->1597|2726->1628|3481->2356|3517->2383|3556->2384|3613->2413|3716->2489|3753->2505|3810->2534|3906->2599|3960->2625
                   LINES: 28->1|33->2|62->31|62->31|62->31|78->47|78->47|78->47|79->48|80->49|80->49|81->50|83->52|85->54
