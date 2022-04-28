@@ -1,14 +1,14 @@
-import { Box, Button, Center, FormControl, FormErrorMessage, FormLabel, Input, Text, useToast, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, FormControl, FormErrorMessage, FormLabel, Input, Text, useToast, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { Api } from "../Api";
 
 export const Login = (props) => {
 
-    const [username, setUsername] = useState(null);
-    const [password, setPassword] = useState(null);
-    const usernameError = username === "";
-    const passwordError = password === "";
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const usernameError = false;
+    const passwordError = false;
     const api = new Api;
     const toast = useToast();
     const router = useRouter();
@@ -49,7 +49,11 @@ export const Login = (props) => {
                         <Input isInvalid={passwordError} borderColor="accent.100" id="password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </Box>
                 </FormControl>
-                <Button mx="auto" display="block" justifyContent="center" w="15rem" mt="2rem" variant="primary" onClick={handleLogin}>Login</Button>
+                <Button mx="auto" display="block" justifyContent="center" w="51%" mt="2rem" variant="primary" onClick={handleLogin}>Login</Button>
+                <Flex maxW="51%" mt="1rem" position="relative">
+                    <Button display="block" variant="primary" position="absolute" left="48%" onClick={() => router.push("/")}>Back</Button>
+                    <Button display="block" variant="primary" position="absolute" right="-48%" onClick={() => router.push("/signup")}>Sign Up</Button>
+                </Flex>
             </Box>
         </VStack>
     );
