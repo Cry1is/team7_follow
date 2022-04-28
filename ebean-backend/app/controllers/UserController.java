@@ -7,6 +7,8 @@ import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import java.util.List;
+
 
 /**
  * @description: user reg/login
@@ -72,6 +74,13 @@ public class UserController extends Controller {
         System.out.println("Getting profile");
 
         User u = User.findById(user_id);
+        return ok(Json.toJson(u));
+    }
+
+    public Result getUsers() {
+        System.out.println("Getting users");
+
+        List<User> u = User.list();
         return ok(Json.toJson(u));
     }
 

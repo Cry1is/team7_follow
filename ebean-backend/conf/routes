@@ -11,6 +11,9 @@ POST    /login                                      controllers.UserController.a
 # Add User  {"name":name, "password":password}
 POST    /signup                                     controllers.UserController.registerNew()
 
+# Get Users
+GET    /users                                       controllers.UserController.getUsers()
+
 # Get User
 GET    /users/:user_id                              controllers.UserController.getProfile(user_id: Long)
 
