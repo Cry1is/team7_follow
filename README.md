@@ -7,8 +7,8 @@ Follow user feature for a social network.
 For backend: standard Play! Framework setup with sbt and all that
 
 For frontend: 
-`bash
+```bash
 cd react_frontend
 npm install
 npx next dev
-`
+```
