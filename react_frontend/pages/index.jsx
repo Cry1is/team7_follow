@@ -44,8 +44,15 @@ export default function Home() {
             }).catch(err => console.log(err));
         }
 
-        if (!add)
-            api.unfollowUser(body).then(res => console.log(res)).catch(err => console.log(err));
+        if (!add) {
+            api.unfollowUser(body).then(res => {
+                console.log(res);
+                api.getFollowing(currentUser?.user_id).then(res => {
+                    setFollowing(res);
+                    console.log("Following", res);
+                });
+            }).catch(err => console.log(err));
+        }
 
     };
 
