@@ -17,4 +17,14 @@ export class Api {
         }).then(res => res.json()).catch(err => console.log(err));
     }
 
+    async signup(body) {
+        return await fetch(`${config.api_url}/signup`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+        }).then(res => res.json()).catch(err => console.log(err));
+    }
+
 }
