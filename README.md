@@ -4,8 +4,12 @@ Follow user feature for a social network.
 
 ## How to run
 ### For frontend: 
+
+First, rename config.json.example to config.json. If you are running the backend locally on port 9005, nothing needs to be changed. However, if that is not where the backend is located, change that to the appropriate URL before building the frontend. Please make sure there are no trailing slashes and ensure the protocol (HTTP or HTTPS) is specified.
+
+Then, run the following commands in the react_frontend directory:
+
 ```bash
-cd react_frontend
 npm install
 npx next dev
 ```
