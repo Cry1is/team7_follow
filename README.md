@@ -12,3 +12,5 @@ cd react_frontend
 npm install
 npx next dev
 ```
+
+*Parts of this project were coded using CodeWithMe, so commits by one user may include the work of multiple people.
