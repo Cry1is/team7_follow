@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/myusernamesthis/Documents/team7_follow/ebean-backend/conf/routes
-// @DATE:Wed Apr 27 17:18:29 CDT 2022
+// @DATE:Thu Apr 28 10:20:59 CDT 2022
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -44,6 +44,16 @@ package controllers.javascript {
 
   
     // @LINE:15
+    def getUsers: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.getUsers",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users"})
+        }
+      """
+    )
+  
+    // @LINE:18
     def getProfile: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UserController.getProfile",
       """
@@ -75,7 +85,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:18
+  // @LINE:21
   class ReverseFollowController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -83,7 +93,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:27
+    // @LINE:30
     def getFollowers: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.FollowController.getFollowers",
       """
@@ -93,7 +103,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:33
+    // @LINE:36
     def getNumFollowers: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.FollowController.getNumFollowers",
       """
@@ -103,7 +113,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:30
+    // @LINE:33
     def getFollowing: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.FollowController.getFollowing",
       """
@@ -113,17 +123,21 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:18
+    // @LINE:21
     def follow: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.FollowController.follow",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "follows"})
+        
+          if (true) {
+            return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "follows"})
+          }
+        
         }
       """
     )
   
-    // @LINE:36
+    // @LINE:39
     def getNumFollowing: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.FollowController.getNumFollowing",
       """
@@ -133,17 +147,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:21
-    def block: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.FollowController.block",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "follows/in"})
-        }
-      """
-    )
-  
-    // @LINE:24
+    // @LINE:27
     def unfollow: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.FollowController.unfollow",
       """

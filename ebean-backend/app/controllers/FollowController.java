@@ -31,7 +31,9 @@ public class FollowController extends Controller {
                 result.put("other_id", follow.other_id);
             }
         }
-        return ok(result);
+        return ok(result).withHeaders(
+                "Access-Control-Allow-Origin", "*"
+        );
     }
 
     public Result block() {

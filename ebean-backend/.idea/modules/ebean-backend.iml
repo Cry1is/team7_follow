@@ -47,6 +47,7 @@
     <orderEntry type="library" name="sbt: com.typesafe.netty:netty-reactive-streams-http:1.0.8:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.netty:netty-reactive-streams:1.0.8:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:build-link:2.5.12:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:filters-helpers_2.11:2.5.12:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:play-datacommons_2.11:2.5.12:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:play-ebean_2.11:3.0.1:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:play-enhancer:1.1.0:jar" level="project" />

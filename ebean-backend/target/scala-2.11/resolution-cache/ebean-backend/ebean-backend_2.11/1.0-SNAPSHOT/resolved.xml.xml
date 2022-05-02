@@ -4,7 +4,7 @@
 		module="ebean-backend_2.11"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20220427170441"
+		publication="20220427232144"
 	>
 		<description>
 		ebean-backend
@@ -43,6 +43,7 @@
 		<dependency org="com.typesafe.play" name="play-java_2.11" rev="2.5.12" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-netty-server_2.11" rev="2.5.12" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-logback_2.11" rev="2.5.12" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="filters-helpers_2.11" rev="2.5.12" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-jdbc-evolutions_2.11" rev="2.5.12" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-jdbc_2.11" rev="2.5.12" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-java-ws_2.11" rev="2.5.12" conf="compile->default(compile)"/>

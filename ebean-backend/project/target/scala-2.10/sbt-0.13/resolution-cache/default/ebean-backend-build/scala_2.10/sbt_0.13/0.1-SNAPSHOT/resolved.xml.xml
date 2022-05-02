@@ -4,7 +4,7 @@
 		module="ebean-backend-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20220427171714"
+		publication="20220502120131"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

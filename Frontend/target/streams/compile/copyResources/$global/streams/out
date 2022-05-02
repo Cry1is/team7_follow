@@ -1,4 +1,0 @@
-[debug] Copy resource mappings: 
-[debug] 	(/home/myusernamesthis/cs4345/team7_follow/Frontend/conf/logback.xml,/home/myusernamesthis/cs4345/team7_follow/Frontend/target/scala-2.12/classes/logback.xml)
-[debug] 	(/home/myusernamesthis/cs4345/team7_follow/Frontend/conf/application.conf,/home/myusernamesthis/cs4345/team7_follow/Frontend/target/scala-2.12/classes/application.conf)
-[debug] 	(/home/myusernamesthis/cs4345/team7_follow/Frontend/conf/routes,/home/myusernamesthis/cs4345/team7_follow/Frontend/target/scala-2.12/classes/routes)

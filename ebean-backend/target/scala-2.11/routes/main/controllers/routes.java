@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/Zachary/Documents/Spring2022/CS4345/team7_follow/ebean-backend/conf/routes
-// @DATE:Mon Apr 18 16:59:09 CDT 2022
+// @SOURCE:/Users/myusernamesthis/Documents/team7_follow/ebean-backend/conf/routes
+// @DATE:Thu Apr 28 10:20:59 CDT 2022
 
 package controllers;
 

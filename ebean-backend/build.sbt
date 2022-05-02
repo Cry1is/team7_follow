@@ -5,12 +5,15 @@ version := "1.0-SNAPSHOT"
 
 lazy val `root` = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
 
-scalaVersion := "2.11.8"
 resolvers ++= Seq(
   "Typesafe" at "http://repo.typesafe.com/typesafe/releases/",
   "Java.net Maven2 Repository" at "http://download.java.net/maven/2/"
 )
+
+scalaVersion := "2.11.8"
+
 //libraryDependencies += guice
+libraryDependencies += filters
 libraryDependencies += evolutions
 libraryDependencies += jdbc
 libraryDependencies ++= Seq(

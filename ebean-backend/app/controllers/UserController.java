@@ -81,7 +81,12 @@ public class UserController extends Controller {
         System.out.println("Getting users");
 
         List<User> u = User.list();
-        return ok(Json.toJson(u));
+        return ok(Json.toJson(u)).withHeaders(
+                "Access-Control-Allow-Origin", "http://localhost:3000",
+                "Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS",
+                "Access-Control-Max-Age", "3600",
+                "Access-Control-Allow-Headers", "x-requested-with, Content-Type, Authorization, X-Requested-With"
+        );
     }
 
 }

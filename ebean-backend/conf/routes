@@ -21,7 +21,7 @@ GET    /users/:user_id                              controllers.UserController.g
 POST  /follows                                      controllers.FollowController.follow()
 
 # Remove a particular Follower (Block them from following you)
-POST  /follows/in                                   controllers.FollowController.block()
+POST  /follows/in                                   controllers.FollowController.follow()
 
 # Unfollow a particular user
 POST  /follows/out                                  controllers.FollowController.unfollow()
